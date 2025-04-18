@@ -769,67 +769,67 @@ if __name__ == "__main__":
                     if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
                     else: continue
                 else:
-控制台。打印("[bold red]FAILED[/bold red]")
-控制台。打印("[粗体红色]请重试[/粗体红色]")打印(“[粗体红色]请重试[/粗体红色]"[bold red]请重试[/bold red]"[粗体红色]请再试一次[/粗体红色]")
-                    睡眠(2)
-                    继续
-             否则如果 service == 37: # telmunnongonz
-                console.打印("[bold]输入汽车详细信息！[/bold]")
-                car_id = IntPrompt.要求(“[bold][？]汽车ID[/bold]")
-                console.打印("[bold]输入BODYKIT ID！[/bold]")
-                custom = IntPrompt.要求(“[加粗蓝][？]插入腰包式ID[/bold blue]")                
-                console.打印("[bold red][%]保存您的数据[/bold red]:", end=没有人)
-                如果 cpm.telmunnongonz(car_id, custom):
-                    console.打印(“[粗体绿色]成功(✔)[/bold绿色]”)
-                    answ = Prompt.要求(“[bold][？]是否要退出[/bold]？, choices=[" y ", " n "], default=" n ")
-                    如果 answ == " y ": console.打印("[bold white]感谢您使用我的工具[/bold white]")
-                    其他: 继续
-                其他:
-                    console.打印("[粗体红色]失败[/粗体红色]")
-                    console.打印("[粗体红色]请再试一次[/粗体红色]")
-                    睡眠(2)
-                    继续
-             否则如果 service == 35:
-                console.打印("[bold]输入新的电子邮件！[/bold]")
-                new_email = 提示有效值(“[bold][？]帐户新电子邮件[/bold]", "电子邮件")
-                console.打印("[bold red][%]更改电子邮件[/bold red]:", end=没有人)
-                如果 cpm.更改_电子邮件(new_email):
-                    console.打印(“[粗体绿色]成功(✔)[/bold绿色]”)
-                    answ = Prompt.要求(“[bold][？]是否要退出[/bold]？, choices=[" y ", " n "], default=" n ")
-                    如果 answ == " y ": console.打印("[bold white]感谢您使用我的工具[/bold white]")
-                    其他: 破裂
-                其他:
-                    console.打印("[粗体红色]失败[/粗体黄色]")
-                    console.打印("[粗体红色]电子邮件已经注册[/粗体红色]")
-                    睡眠(4)
-             否则如果 service == 38: #狗屎
-                console.打印("[%]解锁高级车轮..: ", end=没有人)
-                如果 cpm.什廷():
-                    console.打印(“[粗体绿色]成功(✔)[/bold绿色]”)
-                    console.打印(“[粗体绿色]= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =[/粗体绿色]”)
-                    answ = Prompt.要求("[?]要退出吗？”, choices=[" y ", " n "], default=" n ")
-                    如果 answ == " y ": console.打印("[bold white]感谢您使用我的工具[/bold white]")
-                    其他: 继续
-                其他:
-                    console.打印("[粗体红色]失败[/粗体红色]")
-                    console.打印("[粗体红色]请再试一次[/粗体红色]")
-                    睡眠(2)
-                    继续
-             否则如果 service == 39: #解锁丰田皇冠
-                console.打印("[!]注意:此功能需要一段时间才能完成，请不要取消。”, end=没有人)
-                console.打印("[%]解锁丰田皇冠: ", end=没有人)
-                如果 cpm.解锁_皇冠():
-                    console.打印(“[粗体绿色]成功(✔)[/bold绿色]”)
-                    console.打印(“[粗体绿色]= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =[/粗体绿色]”)
-                    answ = Prompt.要求("[?]要退出吗？”, choices=[" y ", " n "], default=" n ")
-                    如果 answ == " y ": console.打印("[bold white]感谢您使用我的工具[/bold white]")
-                    其他: 继续
-                其他:
-                    console.打印("[粗体红色]失败[/粗体红色]")
-                    console.打印("[粗体红色]请再试一次[/粗体红色]")
-                    睡眠(2)
-                    继续
-            其他:
-                继续
-            破裂
-        破裂
+                    console.print("[bold red]FAILED[/bold red]")
+                    console.print("[bold red]Please Try Again[/bold red]")
+                    sleep(2)
+                    continue
+            elif service == 37: # telmunnongonz
+                console.print("[bold]ENTER CAR DETAILS![/bold]")
+                car_id = IntPrompt.ask("[bold][?] CAR ID[/bold]")
+                console.print("[bold]ENTER BODYKIT ID![/bold]")print("[bold]ENTER BODYKIT ID![/bold]")
+                custom = IntPrompt.ask("[bold blue][?]INSERT BODYKIT ID[/bold blue]")                ask("[bold blue][?]INSERT BODYKIT ID[/bold blue]")                
+                console.print("[bold red][%] SAVING YOUR DATA [/bold red]: ", end=None)print("[bold red][%] SAVING YOUR DATA [/bold red]: ", end=None)
+                if cpm.telmunnongonz(car_id, custom):if cpm.telmunnongonz(car_id, custom):
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    answ = Prompt.ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
+                    else: continueelse: continue
+                else:else:
+                    console.print("[bold red]FAILED[/bold red]")print("[bold red]FAILED[/bold red]")
+                    console.print("[bold red]Please Try Again[/bold red]")print("[bold red]Please Try Again[/bold red]")
+                    sleep(2)
+                    continuecontinue
+            elif service == 35:
+                console.print("[bold]Enter New Email![/bold]")print("[bold]Enter New Email![/bold]")
+                new_email = prompt_valid_value("[bold][?] Account New Email[/bold]", "Email")prompt_valid_value("[bold][?] Account New Email[/bold]", "Email")
+                console.print("[bold red][%] Changing Email [/bold red]: ", end=None)print("[bold red][%] Changing Email [/bold red]: ", end=None)
+                if cpm.change_email(new_email):
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    answ = Prompt.ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white]Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white]Thank You for using my tool[/bold white]")
+                    else: breakelse: break
+                else:else:
+                    console.print("[bold red]FAILED[/bold yellow]")print("[bold red]FAILED[/bold yellow]")
+                    console.print("[bold red]EMAIL IS ALREADY REGISTERED [/bold red]")print("[bold red]EMAIL IS ALREADY REGISTERED [/bold red]")
+                    sleep(4)sleep(4)
+            elif service == 38: # SHITTINelif service == 38: # SHITTIN
+                console.print("[%] Unlocking Premium Wheels..: ", end=None)print("[%] Unlocking Premium Wheels..: ", end=None)
+                if cpm.shittin():if cpm.shittin():
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    console.print("[bold green]======================================[/bold green]")print("[bold green]======================================[/bold green]")
+                    answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
+                    else: continueelse: continue
+                else:
+                    console.print("[bold red]FAILED[/bold red]")
+                    console.print("[bold red]Please Try Again[/bold red]")print("[bold red]Please Try Again[/bold red]")
+                    sleep(2)sleep(2)
+                    continuecontinue
+            elif service == 39: # Unlock toyota crown
+                console.print("[!] Note: this function takes a while to complete, please don't cancel.", end=None)print("[!] Note: this function takes a while to complete, please don't cancel.", end=None)
+                console.print("[%] Unlocking Toyota Crown: ", end=None)
+                if cpm.unlock_crown():if cpm.unlock_crown():
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    console.print("[bold green]======================================[/bold green]")print("[bold green]======================================[/bold green]")
+                    answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
+                    else: continue
+                else:else:
+                    console.print("[bold red]FAILED[/bold red]")print("[bold red]FAILED[/bold red]")
+                    console.print("[bold red]Please Try Again[/bold red]")
+                    sleep(2)sleep(2)
+                    continuecontinue
+            else:
+                continuecontinue
+            break
+        breakbreak
