@@ -1,4 +1,4 @@
- #!/usr/bin/python
+#!/usr/bin/python
 
 import random
 import urllib.parse
@@ -146,8 +146,7 @@ if __name__ == "__main__":
                 continue
             elif login_response == 103:
                 console.print("[bold red]INVALID ACCESS KEY (✘)[/bold red]")
-                sleep(2)
-                continue
+                sleep(1)
             else:
                 console.print("[bold red]TRY AGAIN[/bold red]")
                 console.print("[bold yellow] '! Note: make sure you filled out the fields ![/bold yellow]")
@@ -162,45 +161,45 @@ if __name__ == "__main__":
             load_key_data(cpm)
             load_client_details()
             choices = ["00", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",]
-            console.print("[bold yellow][bold white](01)[/bold white]: Increase Money           [bold red]1.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](02)[/bold white]: Increase Coins           [bold red]1.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](03)[/bold white]: King Rank                [bold red]8K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](04)[/bold white]: Change ID                [bold red]4.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](05)[/bold white]: Change Name              [bold red]100[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](06)[/bold white]: Change Name (Rainbow)    [bold red]100[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](07)[/bold white]: Number Plates            [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](08)[/bold white]: Account Delete           [bold red]Free[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](09)[/bold white]: Account Register         [bold red]Free[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](10)[/bold white]: Delete Friends           [bold red]500[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](11)[/bold white]: Unlock Paid Cars         [bold red]5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](12)[/bold white]: Unlock All Cars          [bold red]6K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](13)[/bold white]: Unlock All Cars Siren    [bold red]3.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](14)[/bold white]: Unlock W16 Engine        [bold red]4K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](15)[/bold white]: Unlock All Horns         [bold red]3K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](16)[/bold white]: Unlock Disable Damage    [bold red]3K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](17)[/bold white]: Unlock Unlimited Fuel    [bold red]3K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](18)[/bold white]: Unlock Home 3            [bold red]4K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](19)[/bold white]: Unlock Smoke             [bold red]4K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](20)[/bold white]: Unlock Wheels            [bold red]4K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](21)[/bold white]: Unlock Animations        [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](22)[/bold white]: Unlock Equipaments M     [bold red]3K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](23)[/bold white]: Unlock Equipaments F     [bold red]3K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](24)[/bold white]: Change Race Wins         [bold red]1K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](25)[/bold white]: Change Race Loses        [bold red]1K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](26)[/bold white]: Clone Account            [bold red]7K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](27)[/bold white]: Custom HP                [bold red]2.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](28)[/bold white]: Custom Angle             [bold red]1.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](29)[/bold white]: Custom Tire burner       [bold red]1.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](30)[/bold white]: Custom Car Millage       [bold red]1.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](31)[/bold white]: Custom Car Brake         [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](32)[/bold white]: Remove Rear Bumper       [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](33)[/bold white]: Remove Front Bumper      [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](34)[/bold white]: Change Account Password  [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](35)[/bold white]: Change Account Email     [bold red]2K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](36)[/bold white]: Custom Spoiler           [bold red]10K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](37)[/bold white]: Custom BodyKit           [bold red]10K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](38)[/bold white]: Unlock Premium Wheels    [bold red]4.5K[/bold red][/bold yellow]")
-            console.print("[bold yellow][bold white](39)[/bold white]: Unlock Toyota Crown      [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](01)[/bold white]: Increase Money           [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](02)[/bold white]: Increase Coins           [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](03)[/bold white]: King Rank                [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](04)[/bold white]: Change ID                [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](05)[/bold white]: Change Name              [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](06)[/bold white]: Change Name (Rainbow)    [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](07)[/bold white]: Number Plates            [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](08)[/bold white]: Account Delete           [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](09)[/bold white]: Account Register         [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](10)[/bold white]: Delete Friends           [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](11)[/bold white]: Unlock Paid Cars         [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](12)[/bold white]: Unlock All Cars          [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](13)[/bold white]: Unlock All Cars Siren    [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](14)[/bold white]: Unlock W16 Engine        [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](15)[/bold white]: Unlock All Horns         [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](16)[/bold white]: Unlock Disable Damage    [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](17)[/bold white]: Unlock Unlimited Fuel    [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](18)[/bold white]: Unlock Home 3            [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](19)[/bold white]: Unlock Smoke             [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](20)[/bold white]: Unlock Wheels            [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](21)[/bold white]: Unlock Animations        [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](22)[/bold white]: Unlock Equipaments M     [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](23)[/bold white]: Unlock Equipaments F     [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](24)[/bold white]: Change Race Wins         [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](25)[/bold white]: Change Race Loses        [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](26)[/bold white]: Clone Account            [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](27)[/bold white]: Custom HP                [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](28)[/bold white]: Custom Angle             [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](29)[/bold white]: Custom Tire burner       [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](30)[/bold white]: Custom Car Millage       [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](31)[/bold white]: Custom Car Brake         [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](32)[/bold white]: Remove Rear Bumper       [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](33)[/bold white]: Remove Front Bumper      [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](34)[/bold white]: Change Account Password  [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](35)[/bold white]: Change Account Email     [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](36)[/bold white]: Custom Spoiler           [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](37)[/bold white]: Custom BodyKit           [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](38)[/bold white]: Unlock Premium Wheels    [bold red]0[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](39)[/bold white]: Unlock Toyota Crown      [bold red]0[/bold red][/bold yellow]")
             console.print("[bold yellow][bold white](0) [/bold white]: Exit From Tool [/bold yellow]")
             
             console.print("[bold red]===============[bold white][ 𝐂𝐏𝐌 ][/bold white]===============[/bold red]")
@@ -777,60 +776,60 @@ if __name__ == "__main__":
             elif service == 37: # telmunnongonz
                 console.print("[bold]ENTER CAR DETAILS![/bold]")
                 car_id = IntPrompt.ask("[bold][?] CAR ID[/bold]")
-                console.print("[bold]ENTER BODYKIT ID![/bold]")
-                custom = IntPrompt.ask("[bold blue][?]INSERT BODYKIT ID[/bold blue]")                
-                console.print("[bold red][%] SAVING YOUR DATA [/bold red]: ", end=None)
-                if cpm.telmunnongonz(car_id, custom):
-                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")
-                    answ = Prompt.ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")
-                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
-                    else: continue
-                else:
-                    console.print("[bold red]FAILED[/bold red]")
-                    console.print("[bold red]Please Try Again[/bold red]")
+                console.print("[bold]ENTER BODYKIT ID![/bold]")print("[bold]ENTER BODYKIT ID![/bold]")
+                custom = IntPrompt.ask("[bold blue][?]INSERT BODYKIT ID[/bold blue]")                ask("[bold blue][?]INSERT BODYKIT ID[/bold blue]")                
+                console.print("[bold red][%] SAVING YOUR DATA [/bold red]: ", end=None)print("[bold red][%] SAVING YOUR DATA [/bold red]: ", end=None)
+                if cpm.telmunnongonz(car_id, custom):if cpm.telmunnongonz(car_id, custom):
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    answ = Prompt.ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
+                    else: continueelse: continue
+                else:else:
+                    console.print("[bold red]FAILED[/bold red]")print("[bold red]FAILED[/bold red]")
+                    console.print("[bold red]Please Try Again[/bold red]")print("[bold red]Please Try Again[/bold red]")
                     sleep(2)
-                    continue
+                    continuecontinue
             elif service == 35:
-                console.print("[bold]Enter New Email![/bold]")
-                new_email = prompt_valid_value("[bold][?] Account New Email[/bold]", "Email")
-                console.print("[bold red][%] Changing Email [/bold red]: ", end=None)
+                console.print("[bold]Enter New Email![/bold]")print("[bold]Enter New Email![/bold]")
+                new_email = prompt_valid_value("[bold][?] Account New Email[/bold]", "Email")prompt_valid_value("[bold][?] Account New Email[/bold]", "Email")
+                console.print("[bold red][%] Changing Email [/bold red]: ", end=None)print("[bold red][%] Changing Email [/bold red]: ", end=None)
                 if cpm.change_email(new_email):
-                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")
-                    answ = Prompt.ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")
-                    if answ == "y": console.print("[bold white]Thank You for using my tool[/bold white]")
-                    else: break
-                else:
-                    console.print("[bold red]FAILED[/bold yellow]")
-                    console.print("[bold red]EMAIL IS ALREADY REGISTERED [/bold red]")
-                    sleep(4)
-            elif service == 38: # SHITTIN
-                console.print("[%] Unlocking Premium Wheels..: ", end=None)
-                if cpm.shittin():
-                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")
-                    console.print("[bold green]======================================[/bold green]")
-                    answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
-                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
-                    else: continue
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    answ = Prompt.ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")ask("[bold][?] DO YOU WANT TO EXIT[/bold] ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white]Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white]Thank You for using my tool[/bold white]")
+                    else: breakelse: break
+                else:else:
+                    console.print("[bold red]FAILED[/bold yellow]")print("[bold red]FAILED[/bold yellow]")
+                    console.print("[bold red]EMAIL IS ALREADY REGISTERED [/bold red]")print("[bold red]EMAIL IS ALREADY REGISTERED [/bold red]")
+                    sleep(4)sleep(4)
+            elif service == 38: # SHITTINelif service == 38: # SHITTIN
+                console.print("[%] Unlocking Premium Wheels..: ", end=None)print("[%] Unlocking Premium Wheels..: ", end=None)
+                if cpm.shittin():if cpm.shittin():
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    console.print("[bold green]======================================[/bold green]")print("[bold green]======================================[/bold green]")
+                    answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
+                    else: continueelse: continue
                 else:
                     console.print("[bold red]FAILED[/bold red]")
-                    console.print("[bold red]Please Try Again[/bold red]")
-                    sleep(2)
-                    continue
+                    console.print("[bold red]Please Try Again[/bold red]")print("[bold red]Please Try Again[/bold red]")
+                    sleep(2)sleep(2)
+                    continuecontinue
             elif service == 39: # Unlock toyota crown
-                console.print("[!] Note: this function takes a while to complete, please don't cancel.", end=None)
+                console.print("[!] Note: this function takes a while to complete, please don't cancel.", end=None)print("[!] Note: this function takes a while to complete, please don't cancel.", end=None)
                 console.print("[%] Unlocking Toyota Crown: ", end=None)
-                if cpm.unlock_crown():
-                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")
-                    console.print("[bold green]======================================[/bold green]")
-                    answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
-                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
+                if cpm.unlock_crown():if cpm.unlock_crown():
+                    console.print("[bold green]SUCCESSFUL (✔)[/bold green]")print("[bold green]SUCCESSFUL (✔)[/bold green]")
+                    console.print("[bold green]======================================[/bold green]")print("[bold green]======================================[/bold green]")
+                    answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")if answ == "y": console.print("[bold white] Thank You for using my tool[/bold white]")
                     else: continue
-                else:
-                    console.print("[bold red]FAILED[/bold red]")
+                else:else:
+                    console.print("[bold red]FAILED[/bold red]")print("[bold red]FAILED[/bold red]")
                     console.print("[bold red]Please Try Again[/bold red]")
-                    sleep(2)
-                    continue
+                    sleep(2)sleep(2)
+                    continuecontinue
             else:
-                continue
+                continuecontinue
             break
-        break              
+        breakbreak
