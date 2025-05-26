@@ -39,7 +39,7 @@ def gradient_text(text, colors):
 
 def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
-    brand_name = "Tool version is 0.3"
+    brand_name = "𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲: 𝐊𝐚𝐲𝐳𝐞𝐧 𝐱 𝐂𝐲𝐥𝐨𝐓𝐨𝐨𝐥 𝐕𝟑"
     
     text = Text(brand_name, style="bold bright_cyan")
     
@@ -57,45 +57,46 @@ def load_player_data(cpm):
 
         if all(key in data for key in ['floats', 'localID', 'money', 'coin', "integers"]):
             
-            console.print("[bold][dodger_blue1]========[/dodger_blue1][ steel_blue1]ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ[/steel_blue1][dodger_blue1]========[/dodger_blue1][/bold]")
+            console.print("[bold dodger_blue1]========[/] [steel_blue1]ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ[/] [dodger_blue1]========[/][/bold]")
             
-            console.print(f"[bold steel_blue1]   >> Name        :[/bold steel_blue1] [bright_white]{data.get('Name', 'UNDEFINED')}[/bright_white]")
-            console.print(f"[bold steel_blue1]   >> LocalID     :[/bold steel_blue1] [bright_white]{data.get('localID', 'UNDEFINED')}[/bright_white]")
-            console.print(f"[bold steel_blue1]   >> Moneys      :[/bold steel_blue1] [spring_green3]{data.get('money', 'UNDEFINED')}[/spring_green3]")
-            console.print(f"[bold steel_blue1]   >> Coins       :[/bold steel_blue1] [gold3]{data.get('coin', 'UNDEFINED')}[/gold3]")
+            console.print(f"[steel_blue1]   >> Name        :[/] [bright_white]{data.get('Name', 'UNDEFINED')}[/]")
+            console.print(f"[steel_blue1]   >> LocalID     :[/] [bright_white]{data.get('localID', 'UNDEFINED')}[/]")
+            console.print(f"[steel_blue1]   >> Moneys      :[/] [spring_green3]{data.get('money', 'UNDEFINED')}[/]")
+            console.print(f"[steel_blue1]   >> Coins       :[/] [gold3]{data.get('coin', 'UNDEFINED')}[/]")
             friends_count = len(data.get("FriendsID", []))
-            console.print(f"[bold steel_blue1]   >> Friends     :[/bold steel_blue1] [bright_white]{friends_count}[/bright_white]")
+            console.print(f"[steel_blue1]   >> Friends     :[/] [bright_white]{friends_count}[/]")
             car_data = data.get("carIDnStatus", {}).get("carGeneratedIDs", [])
             unique_car_data = set(car_data)
             car_count = len(unique_car_data)
-            console.print(f"[bold steel_blue1]   >> Car Count   :[/bold steel_blue1] [bright_white]{car_count}[/bright_white]")
+            console.print(f"[steel_blue1]   >> Car Count   :[/] [bright_white]{car_count}[/]")
        
         else:
-            console.print("[bold red1] ! ERROR: new accounts must be signed-in to the game at least once (✘)[/bold red1]")
+            console.print("[bold red1] ! ERROR: new accounts must be signed-in to the game at least once (✘)[/]")
             sleep(1)
     else:
-        console.print("[bold red1] ! ERROR: seems like your login is not properly set (✘)[/bold red1]")
+        console.print("[bold red1] ! ERROR: seems like your login is not properly set (✘)[/]")
         exit(1)
 
 def load_key_data(cpm):
     data = cpm.get_key_data()
     
-    console.print("[bold][dodger_blue1]========[/dodger_blue1][ steel_blue1]𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎[/steel_blue1][dodger_blue1]========[/dodger_blue1][/bold]")
+    console.print("[bold dodger_blue1]========[/] [steel_blue1]𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎[/] [dodger_blue1]========[/][/bold]")
     
-    console.print(f"[bold steel_blue1]   >> Access Key  :[/bold steel_blue1] [grey70]{data.get('access_key')}[/grey70]")
+    console.print(f"[steel_blue1]   >> Access Key  :[/] [grey70]{data.get('access_key')}[/]")
     
-    console.print(f"[bold steel_blue1]   >> Telegram ID :[/bold steel_blue1] [bright_white]{data.get('telegram_id')}[/bright_white]")
+    console.print(f"[steel_blue1]   >> Telegram ID :[/] [bright_white]{data.get('telegram_id')}[/]")
     
     if data.get('is_unlimited'):
-        console.print(f"[bold steel_blue1]   >> Balance     :[/bold steel_blue1] [bold spring_green4]Unlimited[/bold spring_green4]")
+        console.print(f"[steel_blue1]   >> Balance     :[/] [bold spring_green4]Unlimited[/]")
     else:
-        console.print(f"[bold steel_blue1]   >> Balance     :[/bold steel_blue1] [bold chartreuse2]{data.get('coins')}[/bold chartreuse2]")
+# Consistent style using [/] for all closings
+console.print(f"[steel_blue1]   >> Balance     :[/] [bold chartreuse2]{data.get('coins')}[/]")
 
 def prompt_valid_value(content, tag, password=False):
     while True:
         value = Prompt.ask(content, password=password)
         if not value or value.isspace():
-            console.print(f"[bold red1]{tag} cannot be empty or just spaces. Please try again (✘)[/bold red1]")
+            console.print(f"[bold red1]{tag} cannot be empty or just spaces. Please try again (✘)[/]")
         else:
             return value
             
