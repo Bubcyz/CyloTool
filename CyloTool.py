@@ -14,6 +14,8 @@ from pystyle import Colors, Colorate
 
 from cylo import Bubcyz
 
+from cylo import Bubcyz
+
 def signal_handler(sig, frame):
     print("\n Bye Bye...")
     sys.exit(0)
@@ -26,15 +28,14 @@ def gradient_text(text, colors):
     for y, line in enumerate(lines):
         for x, char in enumerate(line):
             if char != ' ':
-                color_index = int(((x / (width - 1 if width > 1 else 1)) + (y / (height - 1 if height > 1 else 1))) * 0.5 * (len(colors) - 1)
-                color_index = min(max(color_index, 0), len(colors) - 1)  # Ensure the index is within bounds
+                color_index = int((x/(width-1 if width>1 else 1) + y/(height-1 if height>1 else 1)) * 0.5 * (len(colors)-1))
+                color_index = min(max(color_index, 0), len(colors) - 1)
                 style = Style(color=colors[color_index])
                 colorful_text.append(char, style=style)
             else:
                 colorful_text.append(char)
         colorful_text.append("\n")
     return colorful_text
-
 
 def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -43,11 +44,11 @@ def banner(console):
     text = Text(brand_name, style="bold bright_cyan")
     
     console.print(text)
-    console.print("[bold dodger_blue1]============================================================[/bold dodger_blue1]")
-    console.print("[bold gold3]      𝗣𝗟𝗘𝗔𝗦𝗘 𝗟𝗢𝗚 𝗢𝗨𝗧 𝗙𝗥𝗢𝗠 𝗖𝗣𝗠 𝗕𝗘𝗙𝗢𝗥𝗘 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗜𝗦 𝗧𝗢𝗢𝗟[/bold gold3]")
-    console.print("[bold dark_orange3]      𝗦𝗛𝗔𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗜𝗦 𝗡𝗢𝗧 𝗔𝗟𝗟𝗢𝗪𝗘𝗗[/bold dark_orange3]")
-    console.print("[bold dodger_blue1]============================================================[/bold dodger_blue1]")  
-    
+    console.print("[bold deep_sky_blue3]============================================================[/bold deep_sky_blue3]")
+    console.print("[bold gold1]      𝗣𝗟𝗘𝗔𝗦𝗘 𝗟𝗢𝗚 𝗢𝗨𝗧 𝗙𝗥𝗢𝗠 𝗖𝗣𝗠 𝗕𝗘𝗙𝗢𝗥𝗘 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗜𝗦 𝗧𝗢𝗢𝗟[/bold gold1]")
+    console.print("[bold dark_orange]      𝗦𝗛𝗔𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗜𝗦 𝗡𝗢𝗧 𝗔𝗟𝗟𝗢𝗪𝗘𝗗[/bold dark_orange]")
+    console.print("[bold deep_sky_blue3]============================================================[/bold deep_sky_blue3]")  
+
 def load_player_data(cpm):
     response = cpm.get_player_data()
     
@@ -56,17 +57,15 @@ def load_player_data(cpm):
 
         if all(key in data for key in ['floats', 'localID', 'money', 'coin', "integers"]):
             
-            console.print("[bold][deep_sky_blue4]========[/deep_sky_blue4][ steel_blue1]ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ[/steel_blue1][deep_sky_blue4]========[/deep_sky_blue4][/bold]")
+            console.print("[bold][dodger_blue1]========[/dodger_blue1][ steel_blue1]ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ[/steel_blue1][dodger_blue1]========[/dodger_blue1][/bold]")
             
             console.print(f"[bold steel_blue1]   >> Name        :[/bold steel_blue1] [bright_white]{data.get('Name', 'UNDEFINED')}[/bright_white]")
             console.print(f"[bold steel_blue1]   >> LocalID     :[/bold steel_blue1] [bright_white]{data.get('localID', 'UNDEFINED')}[/bright_white]")
-            console.print(f"[bold steel_blue1]   >> Moneys      :[/bold steel_blue1] [chartreuse3]{data.get('money', 'UNDEFINED')}[/chartreuse3]")
+            console.print(f"[bold steel_blue1]   >> Moneys      :[/bold steel_blue1] [spring_green3]{data.get('money', 'UNDEFINED')}[/spring_green3]")
             console.print(f"[bold steel_blue1]   >> Coins       :[/bold steel_blue1] [gold3]{data.get('coin', 'UNDEFINED')}[/gold3]")
             friends_count = len(data.get("FriendsID", []))
             console.print(f"[bold steel_blue1]   >> Friends     :[/bold steel_blue1] [bright_white]{friends_count}[/bright_white]")
-            # Count Cars (Checking if it's nested)
             car_data = data.get("carIDnStatus", {}).get("carGeneratedIDs", [])
-            # Remove duplicates by converting the list to a set
             unique_car_data = set(car_data)
             car_count = len(unique_car_data)
             console.print(f"[bold steel_blue1]   >> Car Count   :[/bold steel_blue1] [bright_white]{car_count}[/bright_white]")
@@ -77,14 +76,13 @@ def load_player_data(cpm):
     else:
         console.print("[bold red1] ! ERROR: seems like your login is not properly set (✘)[/bold red1]")
         exit(1)
-     
 
 def load_key_data(cpm):
     data = cpm.get_key_data()
     
-    console.print("[bold][deep_sky_blue4]========[/deep_sky_blue4][ steel_blue1]𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎[/steel_blue1][deep_sky_blue4]========[/deep_sky_blue4][/bold]")
+    console.print("[bold][dodger_blue1]========[/dodger_blue1][ steel_blue1]𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎[/steel_blue1][dodger_blue1]========[/dodger_blue1][/bold]")
     
-    console.print(f"[bold steel_blue1]   >> Access Key  :[/bold steel_blue1] [grey62]{data.get('access_key')}[/grey62]")
+    console.print(f"[bold steel_blue1]   >> Access Key  :[/bold steel_blue1] [grey70]{data.get('access_key')}[/grey70]")
     
     console.print(f"[bold steel_blue1]   >> Telegram ID :[/bold steel_blue1] [bright_white]{data.get('telegram_id')}[/bright_white]")
     
@@ -92,22 +90,21 @@ def load_key_data(cpm):
         console.print(f"[bold steel_blue1]   >> Balance     :[/bold steel_blue1] [bold spring_green4]Unlimited[/bold spring_green4]")
     else:
         console.print(f"[bold steel_blue1]   >> Balance     :[/bold steel_blue1] [bold chartreuse2]{data.get('coins')}[/bold chartreuse2]")
-    
 
 def prompt_valid_value(content, tag, password=False):
     while True:
         value = Prompt.ask(content, password=password)
         if not value or value.isspace():
-            console.print(f"[bold red]{tag} cannot be empty or just spaces. Please try again (✘)[/bold red]")
+            console.print(f"[bold red1]{tag} cannot be empty or just spaces. Please try again (✘)[/bold red1]")
         else:
             return value
             
 def load_client_details():
     response = requests.get("http://ip-api.com/json")
     data = response.json()
-    console.print("[bold red] =============[bold white][ 𝙇𝙊𝘾𝘼𝙏𝙄𝙊𝙉 ][/bold white]=============[/bold red]")
+    console.print("[bold purple] =============[bold white][ 𝙇𝙊𝘾𝘼𝙏𝙄𝙊𝙉 ][/bold white]=============[/bold purple]")
     console.print(f"[bold white]    >> Country    : {data.get('country')} {data.get('zip')}[/bold white]")
-    console.print("[bold red] ===============[bold white][ ＭＥＮＵ ][/bold white]===========[/bold red]")
+    console.print("[bold purple] ===============[bold white][ ＭＥＮＵ ][/bold white]===========[/bold purple]")
 
 def interpolate_color(start_color, end_color, fraction):
     start_rgb = tuple(int(start_color[i:i+2], 16) for i in (1, 3, 5))
@@ -134,29 +131,29 @@ if __name__ == "__main__":
         acc_email = prompt_valid_value("[bold][?] Account Email[/bold]", "Email", password=False)
         acc_password = prompt_valid_value("[bold][?] Account Password[/bold]", "Password", password=False)
         acc_access_key = prompt_valid_value("[bold][?] Access Key[/bold]", "Access Key", password=False)
-        console.print("[bold yellow][%] Trying to Login[/bold yellow]: ", end=None)
+        console.print("[bold gold1][%] Trying to Login[/bold gold1]: ", end=None)
         cpm = Bubcyz(acc_access_key)
         login_response = cpm.login(acc_email, acc_password)
         if login_response != 0:
             if login_response == 100:
-                console.print("[bold red]ACCOUNT NOT FOUND (✘)[/bold red]")
+                console.print("[bold red1]ACCOUNT NOT FOUND (✘)[/bold red1]")
                 sleep(2)
                 continue
             elif login_response == 101:
-                console.print("[bold red]WRONG PASSWORD (✘)[/bold red]")
+                console.print("[bold red1]WRONG PASSWORD (✘)[/bold red1]")
                 sleep(2)
                 continue
             elif login_response == 103:
-                console.print("[bold red]INVALID ACCESS KEY (✘)[/bold red]")
+                console.print("[bold red1]INVALID ACCESS KEY (✘)[/bold red1]")
                 sleep(2)
                 continue
             else:
-                console.print("[bold red]TRY AGAIN[/bold red]")
-                console.print("[bold yellow] '! Note: make sure you filled out the fields ![/bold yellow]")
+                console.print("[bold red1]TRY AGAIN[/bold red1]")
+                console.print("[bold gold1] '! Note: make sure you filled out the fields ![/bold gold1]")
                 sleep(2)
                 continue
         else:
-            console.print("[bold green]SUCCESSFUL (✔)[/bold green]")
+            console.print("[bold green1]SUCCESSFUL (✔)[/bold green1]")
             sleep(1)
         while True:
             banner(console)
