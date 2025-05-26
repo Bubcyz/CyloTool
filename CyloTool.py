@@ -89,6 +89,7 @@ def load_key_data(cpm):
     if data.get('is_unlimited'):
         console.print(f"[steel_blue1]   >> Balance     :[/] [bold spring_green4]Unlimited[/]")
     else:
+        console.print(f"[steel_blue1]   >> Balance     :[/] [bold chartreuse2]{data.get('coins')}[/]")
 # Consistent style using [/] for all closings
 console.print(f"[steel_blue1]   >> Balance     :[/] [bold chartreuse2]{data.get('coins')}[/]")
 
