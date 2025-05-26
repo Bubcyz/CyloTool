@@ -26,7 +26,7 @@ def gradient_text(text, colors):
     for y, line in enumerate(lines):
         for x, char in enumerate(line):
             if char != ' ':
-                color_index = int(((x / (width - 1 if width > 1 else 1)) + (y / (height - 1 if height > 1 else 1))) * 0.5 * (len(colors) - 1))
+                color_index = int(((x / (width - 1 if width > 1 else 1)) + (y / (height - 1 if height > 1 else 1))) * 0.5 * (len(colors) - 1)
                 color_index = min(max(color_index, 0), len(colors) - 1)  # Ensure the index is within bounds
                 style = Style(color=colors[color_index])
                 colorful_text.append(char, style=style)
@@ -40,13 +40,13 @@ def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
     brand_name = "Tool version is 0.3"
     
-    text = Text(brand_name, style="bold black")
+    text = Text(brand_name, style="bold bright_cyan")
     
     console.print(text)
-    console.print("[bold white] ============================================================[/bold white]")
-    console.print("[bold yellow]      𝗣𝗟𝗘𝗔𝗦𝗘 𝗟𝗢𝗚 𝗢𝗨𝗧 𝗙𝗥𝗢𝗠 𝗖𝗣𝗠 𝗕𝗘𝗙𝗢𝗥𝗘 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗜𝗦 𝗧𝗢𝗢𝗟[/bold yellow]")
-    console.print("[bold red]      𝗦𝗛𝗔𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗔𝗖𝗖𝗘𝗦 𝗞𝗘𝗬 𝗜𝗦 𝗡𝗢𝗧 𝗔𝗟𝗟𝗢𝗪𝗘𝗗[/bold red]")
-    console.print("[bold white] ============================================================[/bold white]")  
+    console.print("[bold dodger_blue1]============================================================[/bold dodger_blue1]")
+    console.print("[bold gold3]      𝗣𝗟𝗘𝗔𝗦𝗘 𝗟𝗢𝗚 𝗢𝗨𝗧 𝗙𝗥𝗢𝗠 𝗖𝗣𝗠 𝗕𝗘𝗙𝗢𝗥𝗘 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗜𝗦 𝗧𝗢𝗢𝗟[/bold gold3]")
+    console.print("[bold dark_orange3]      𝗦𝗛𝗔𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗜𝗦 𝗡𝗢𝗧 𝗔𝗟𝗟𝗢𝗪𝗘𝗗[/bold dark_orange3]")
+    console.print("[bold dodger_blue1]============================================================[/bold dodger_blue1]")  
     
 def load_player_data(cpm):
     response = cpm.get_player_data()
@@ -56,40 +56,42 @@ def load_player_data(cpm):
 
         if all(key in data for key in ['floats', 'localID', 'money', 'coin', "integers"]):
             
-            console.print("[bold][red]========[/red][ ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ ][red]========[/red][/bold]")
+            console.print("[bold][deep_sky_blue4]========[/deep_sky_blue4][ steel_blue1]ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ[/steel_blue1][deep_sky_blue4]========[/deep_sky_blue4][/bold]")
             
-            console.print(f"[bold white]   >> Name        : {data.get('Name', 'UNDEFINED')}[/bold white]")
-            console.print(f"[bold white]   >> LocalID     : {data.get('localID', 'UNDEFINED')}[/bold white]")
-            console.print(f"[bold white]   >> Moneys      : {data.get('money', 'UNDEFINED')}[/bold white]")
-            console.print(f"[bold white]   >> Coins       : {data.get('coin', 'UNDEFINED')}[/bold white]")
+            console.print(f"[bold steel_blue1]   >> Name        :[/bold steel_blue1] [bright_white]{data.get('Name', 'UNDEFINED')}[/bright_white]")
+            console.print(f"[bold steel_blue1]   >> LocalID     :[/bold steel_blue1] [bright_white]{data.get('localID', 'UNDEFINED')}[/bright_white]")
+            console.print(f"[bold steel_blue1]   >> Moneys      :[/bold steel_blue1] [chartreuse3]{data.get('money', 'UNDEFINED')}[/chartreuse3]")
+            console.print(f"[bold steel_blue1]   >> Coins       :[/bold steel_blue1] [gold3]{data.get('coin', 'UNDEFINED')}[/gold3]")
             friends_count = len(data.get("FriendsID", []))
-            console.print(f"[bold white]   >> Friends     : {friends_count}[/bold white]")
+            console.print(f"[bold steel_blue1]   >> Friends     :[/bold steel_blue1] [bright_white]{friends_count}[/bright_white]")
             # Count Cars (Checking if it's nested)
             car_data = data.get("carIDnStatus", {}).get("carGeneratedIDs", [])
             # Remove duplicates by converting the list to a set
             unique_car_data = set(car_data)
             car_count = len(unique_car_data)
-            console.print(f"[bold white]   >> Car Count   : {car_count}[/bold white]")
+            console.print(f"[bold steel_blue1]   >> Car Count   :[/bold steel_blue1] [bright_white]{car_count}[/bright_white]")
        
         else:
-            console.print("[bold red] '! ERROR: new accounts must be signed-in to the game at least once (✘)[/bold red]")
+            console.print("[bold red1] ! ERROR: new accounts must be signed-in to the game at least once (✘)[/bold red1]")
             sleep(1)
     else:
-        console.print("[bold red] '! ERROR: seems like your login is not properly set (✘)[/bold red]")
+        console.print("[bold red1] ! ERROR: seems like your login is not properly set (✘)[/bold red1]")
         exit(1)
      
 
 def load_key_data(cpm):
-
     data = cpm.get_key_data()
     
-    console.print("[bold][red]========[/red][ 𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎 ][red]========[/red][/bold]")
+    console.print("[bold][deep_sky_blue4]========[/deep_sky_blue4][ steel_blue1]𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎[/steel_blue1][deep_sky_blue4]========[/deep_sky_blue4][/bold]")
     
-    console.print(f"[bold white]   >> Access Key  [/bold white]: [black]{data.get('access_key')}[/black]")
+    console.print(f"[bold steel_blue1]   >> Access Key  :[/bold steel_blue1] [grey62]{data.get('access_key')}[/grey62]")
     
-    console.print(f"[bold white]   >> Telegram ID : {data.get('telegram_id')}[/bold white]")
+    console.print(f"[bold steel_blue1]   >> Telegram ID :[/bold steel_blue1] [bright_white]{data.get('telegram_id')}[/bright_white]")
     
-    console.print(f"[bold white]   >> Balance     : {data.get('coins') if not data.get('is_unlimited') else 'Unlimited'}[/bold white]")
+    if data.get('is_unlimited'):
+        console.print(f"[bold steel_blue1]   >> Balance     :[/bold steel_blue1] [bold spring_green4]Unlimited[/bold spring_green4]")
+    else:
+        console.print(f"[bold steel_blue1]   >> Balance     :[/bold steel_blue1] [bold chartreuse2]{data.get('coins')}[/bold chartreuse2]")
     
 
 def prompt_valid_value(content, tag, password=False):
