@@ -14,8 +14,6 @@ from pystyle import Colors, Colorate
 
 from cylo import Bubcyz
 
-from cylo import Bubcyz
-
 def signal_handler(sig, frame):
     print("\n Bye Bye...")
     sys.exit(0)
@@ -77,6 +75,11 @@ def load_player_data(cpm):
         console.print("[bold red1] ! ERROR: seems like your login is not properly set (✘)[/]")
         exit(1)
 
+from rich.console import Console
+
+# Initialize console at global level
+console = Console()
+
 def load_key_data(cpm):
     data = cpm.get_key_data()
     
@@ -90,8 +93,6 @@ def load_key_data(cpm):
         console.print(f"[steel_blue1]   >> Balance     :[/] [bold spring_green4]Unlimited[/]")
     else:
         console.print(f"[steel_blue1]   >> Balance     :[/] [bold chartreuse2]{data.get('coins')}[/]")
-# Consistent style using [/] for all closings
-console.print(f"[steel_blue1]   >> Balance     :[/] [bold chartreuse2]{data.get('coins')}[/]")
 
 def prompt_valid_value(content, tag, password=False):
     while True:
