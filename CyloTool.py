@@ -211,7 +211,6 @@ if __name__ == "__main__":
             console.print("[red]===============[white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/]===============[/]")
             service = IntPrompt.ask(f"[?] Select a Service [red][1-{choices[-1]} or 0][/]", choices=choices, show_choices=False)
             console.print("[red]===============[white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/]===============[/]")
-```
             
             if service == 0: # Exit
                 console.print("[bold white] Thank You for using my tool[/bold white]")
