@@ -162,7 +162,13 @@ if __name__ == "__main__":
             choices = ["00", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"]
             
             # Menu options
-           menu_items = [
+choices = ["00", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", 
+                      "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", 
+                      "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", 
+                      "31", "32", "33", "34", "35", "36", "37", "38", "39"]
+            
+            # Menu options with consistent formatting and indentation
+            menu_items = [
                 ("(01)", "Increase Money", "1.5K"),
                 ("(02)", "Increase Coins", "1.5K"), 
                 ("(03)", "King Rank", "8K"),
@@ -201,7 +207,8 @@ if __name__ == "__main__":
                 ("(36)", "Custom Spoiler", "10K"),
                 ("(37)", "Custom BodyKit", "10K"),
                 ("(38)", "Unlock Premium Wheels", "4.5K"),
-                ("(39)", "Unlock Toyota Crown", "   ("(0)", "Exit From Tool", "")
+                ("(39)", "Unlock Toyota Crown", "2K"),
+                ("(0)", "Exit From Tool", "")
             ]
 
             # Print menu with perfect alignment
@@ -212,7 +219,9 @@ if __name__ == "__main__":
                     console.print(f"[yellow]{num}[/] [white]{item}[/]")
 
             console.print("[red]===============[white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/]===============[/]")
-            service = IntPrompt.ask("[?] Select a Service [red][1-39 or 0][/]", choices=choices, show_choices=False)
+            service = IntPrompt.ask("[?] Select a Service [red][1-39 or 0][/]", 
+                                  choices=choices, 
+                                  show_choices=False)
             console.print("[red]===============[white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/]===============[/]")
 ```
             
