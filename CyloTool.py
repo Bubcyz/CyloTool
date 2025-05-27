@@ -1,4 +1,4 @@
-#!/usr/bin/python
+ #!/usr/bin/python
 
 import random
 import urllib.parse
@@ -14,9 +14,6 @@ from pystyle import Colors, Colorate
 
 from cylo import Bubcyz
 
-# Initialize console at global level
-console = Console()
-
 def signal_handler(sig, frame):
     print("\n Bye Bye...")
     sys.exit(0)
@@ -29,8 +26,8 @@ def gradient_text(text, colors):
     for y, line in enumerate(lines):
         for x, char in enumerate(line):
             if char != ' ':
-                color_index = int((x/(width-1 if width>1 else 1) + y/(height-1 if height>1 else 1)) * 0.5 * (len(colors)-1))
-                color_index = min(max(color_index, 0), len(colors) - 1)
+                color_index = int(((x / (width - 1 if width > 1 else 1)) + (y / (height - 1 if height > 1 else 1))) * 0.5 * (len(colors) - 1))
+                color_index = min(max(color_index, 0), len(colors) - 1)  # Ensure the index is within bounds
                 style = Style(color=colors[color_index])
                 colorful_text.append(char, style=style)
             else:
@@ -38,18 +35,19 @@ def gradient_text(text, colors):
         colorful_text.append("\n")
     return colorful_text
 
+
 def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
-    brand_name = "𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲: 𝐊𝐚𝐲𝐳𝐞𝐧 𝐱 𝐂𝐲𝐥𝐨𝐓𝐨𝐨𝐥 𝐕𝟑"
+    brand_name = "ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴋᴀʏᴢᴇɴ x ᴄʏʟᴏ ᴛᴏᴏʟ ᴠ2"
     
-    text = Text(brand_name, style="bold bright_cyan")
+    text = Text(brand_name, style="bold black"
     
     console.print(text)
-    console.print("[bold deep_sky_blue3]============================================================[/]")
-    console.print("[bold gold1]      𝗣𝗟𝗘𝗔𝗦𝗘 𝗟𝗢𝗚 𝗢𝗨𝗧 𝗙𝗥𝗢𝗠 𝗖𝗣𝗠 𝗕𝗘𝗙𝗢𝗥𝗘 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗜𝗦 𝗧𝗢𝗢𝗟[/]")
-    console.print("[bold dark_orange]      𝗦𝗛𝗔𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗜𝗦 𝗡𝗢𝗧 𝗔𝗟𝗟𝗢𝗪𝗘𝗗[/]")
-    console.print("[bold deep_sky_blue3]============================================================[/]")  
-
+    console.print("[bold white] ============================================================[/bold white]")
+    console.print("[bold yellow]      𝗣𝗟𝗘𝗔𝗦𝗘 𝗟𝗢𝗚 𝗢𝗨𝗧 𝗙𝗥𝗢𝗠 𝗖𝗣𝗠 𝗕𝗘𝗙𝗢𝗥𝗘 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗜𝗦 𝗧𝗢𝗢𝗟[/bold yellow]")
+    console.print("[bold red]      𝗦𝗛𝗔𝗥𝗜𝗡𝗚 𝗧𝗛𝗘 𝗔𝗖𝗖𝗘𝗦 𝗞𝗘𝗬 𝗜𝗦 𝗡𝗢𝗧 𝗔𝗟𝗟𝗢𝗪𝗘𝗗[/bold red]")
+    console.print("[bold white] ============================================================[/bold white]")  
+    
 def load_player_data(cpm):
     response = cpm.get_player_data()
     
@@ -58,53 +56,56 @@ def load_player_data(cpm):
 
         if all(key in data for key in ['floats', 'localID', 'money', 'coin', "integers"]):
             
-            console.print("[dodger_blue1]========[/] [steel_blue1]ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ[/] [dodger_blue1]========[/]")
+            console.print("[bold][red]========[/red][ ᴘʟᴀʏᴇʀ ᴅᴇᴛᴀɪʟꜱ ][red]========[/red][/bold]")
             
-            console.print(f"[steel_blue1]   >> Name        :[/] [bright_white]{data.get('Name', 'UNDEFINED')}[/]")
-            console.print(f"[steel_blue1]   >> LocalID     :[/] [bright_white]{data.get('localID', 'UNDEFINED')}[/]")
-            console.print(f"[steel_blue1]   >> Moneys      :[/] [spring_green3]{data.get('money', 'UNDEFINED')}[/]")
-            console.print(f"[steel_blue1]   >> Coins       :[/] [gold3]{data.get('coin', 'UNDEFINED')}[/]")
+            console.print(f"[bold white]   >> Name        : {data.get('Name', 'UNDEFINED')}[/bold white]")
+            console.print(f"[bold white]   >> LocalID     : {data.get('localID', 'UNDEFINED')}[/bold white]")
+            console.print(f"[bold white]   >> Moneys      : {data.get('money', 'UNDEFINED')}[/bold white]")
+            console.print(f"[bold white]   >> Coins       : {data.get('coin', 'UNDEFINED')}[/bold white]")
             friends_count = len(data.get("FriendsID", []))
-            console.print(f"[steel_blue1]   >> Friends     :[/] [bright_white]{friends_count}[/]")
+            console.print(f"[bold white]   >> Friends     : {friends_count}[/bold white]")
+            # Count Cars (Checking if it's nested)
             car_data = data.get("carIDnStatus", {}).get("carGeneratedIDs", [])
+            # Remove duplicates by converting the list to a set
             unique_car_data = set(car_data)
             car_count = len(unique_car_data)
-            console.print(f"[steel_blue1]   >> Car Count   :[/] [bright_white]{car_count}[/]")
+            console.print(f"[bold white]   >> Car Count   : {car_count}[/bold white]")
        
         else:
-            console.print("[red1] ! ERROR: new accounts must be signed-in to the game at least once (✘)[/]")
+            console.print("[bold red] '! ERROR: new accounts must be signed-in to the game at least once (✘)[/bold red]")
             sleep(1)
     else:
-        console.print("[red1] ! ERROR: seems like your login is not properly set (✘)[/]")
+        console.print("[bold red] '! ERROR: seems like your login is not properly set (✘)[/bold red]")
         exit(1)
+     
 
 def load_key_data(cpm):
+
     data = cpm.get_key_data()
     
-    console.print("[dodger_blue1]========[/] [steel_blue1]𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎[/] [dodger_blue1]========[/]")
+    console.print("[bold][red]========[/red][ 𝘼𝘾𝘾𝙀𝙎𝙎 𝙆𝙀𝙔 𝘿𝙀𝙏𝘼𝙄𝙇𝙎 ][red]========[/red][/bold]")
     
-    console.print(f"[steel_blue1]   >> Access Key  :[/] [grey70]{data.get('access_key')}[/]")
-    console.print(f"[steel_blue1]   >> Telegram ID :[/] [bright_white]{data.get('telegram_id')}[/]")
+    console.print(f"[bold white]   >> Access Key  [/bold white]: [black]{data.get('access_key')}[/black]")
     
-    if data.get('is_unlimited'):
-        console.print(f"[steel_blue1]   >> Balance     :[/] [spring_green4]Unlimited[/]")
-    else:
-        console.print(f"[steel_blue1]   >> Balance     :[/] [chartreuse2]{data.get('coins')}[/]")
+    console.print(f"[bold white]   >> Telegram ID : {data.get('telegram_id')}[/bold white]")
+    
+    console.print(f"[bold white]   >> Balance     : {data.get('coins') if not data.get('is_unlimited') else 'Unlimited'}[/bold white]")
+    
 
 def prompt_valid_value(content, tag, password=False):
     while True:
         value = Prompt.ask(content, password=password)
         if not value or value.isspace():
-            console.print(f"[red1]{tag} cannot be empty or just spaces. Please try again (✘)[/]")
+            console.print(f"[bold red]{tag} cannot be empty or just spaces. Please try again (✘)[/bold red]")
         else:
             return value
             
 def load_client_details():
     response = requests.get("http://ip-api.com/json")
     data = response.json()
-    console.print("[purple] =============[white][ 𝙇𝙊𝘾𝘼𝙏𝙄𝙊𝙉 ][/]==============[/]")
-    console.print(f"[white]    >> Country    : {data.get('country')} {data.get('zip')}[/]")
-    console.print("[purple] ===============[white][ ＭＥＮＵ ][/]=============[/]")
+    console.print("[bold red] =============[bold white][ 𝙇𝙊𝘾𝘼𝙏𝙄𝙊𝙉 ][/bold white]=============[/bold red]")
+    console.print(f"[bold white]    >> Country    : {data.get('country')} {data.get('zip')}[/bold white]")
+    console.print("[bold red] ===============[bold white][ ＭＥＮＵ ][/bold white]===========[/bold red]")
 
 def interpolate_color(start_color, end_color, fraction):
     start_rgb = tuple(int(start_color[i:i+2], 16) for i in (1, 3, 5))
@@ -124,93 +125,89 @@ def rainbow_gradient_string(customer_name):
     return modified_string
 
 if __name__ == "__main__":
+    console = Console()
     signal.signal(signal.SIGINT, signal_handler)
     while True:
         banner(console)
-        acc_email = prompt_valid_value("[?] Account Email", "Email", password=False)
-        acc_password = prompt_valid_value("[?] Account Password", "Password", password=False)
-        acc_access_key = prompt_valid_value("[?] Access Key", "Access Key", password=False)
-        console.print("[gold1][%] Trying to Login[/]: ", end="")
+        acc_email = prompt_valid_value("[bold][?] Account Email[/bold]", "Email", password=False)
+        acc_password = prompt_valid_value("[bold][?] Account Password[/bold]", "Password", password=False)
+        acc_access_key = prompt_valid_value("[bold][?] Access Key[/bold]", "Access Key", password=False)
+        console.print("[bold yellow][%] Trying to Login[/bold yellow]: ", end=None)
         cpm = Bubcyz(acc_access_key)
         login_response = cpm.login(acc_email, acc_password)
         if login_response != 0:
             if login_response == 100:
-                console.print("[red1]ACCOUNT NOT FOUND (✘)[/]")
+                console.print("[bold red]ACCOUNT NOT FOUND (✘)[/bold red]")
                 sleep(2)
                 continue
             elif login_response == 101:
-                console.print("[red1]WRONG PASSWORD (✘)[/]")
+                console.print("[bold red]WRONG PASSWORD (✘)[/bold red]")
                 sleep(2)
                 continue
             elif login_response == 103:
-                console.print("[red1]INVALID ACCESS KEY (✘)[/]")
+                console.print("[bold red]INVALID ACCESS KEY (✘)[/bold red]")
                 sleep(2)
                 continue
             else:
-                console.print("[red1]TRY AGAIN[/]")
-                console.print("[gold1] '! Note: make sure you filled out the fields ![/]")
+                console.print("[bold red]TRY AGAIN[/bold red]")
+                console.print("[bold yellow] '! Note: make sure you filled out the fields ![/bold yellow]")
                 sleep(2)
                 continue
         else:
-            console.print("[green1]SUCCESSFUL (✔)[/]")
+            console.print("[bold green]SUCCESSFUL (✔)[/bold green]")
             sleep(1)
         while True:
             banner(console)
             load_player_data(cpm)
             load_key_data(cpm)
             load_client_details()
-            choices = ["00", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"]
-
-            # Menu options
-            menu_items = [
-                ("(01)", "Increase Money", "1.5K"),
-                ("(02)", "Increase Coins", "1.5K"), 
-                ("(03)", "King Rank", "8K"),
-                ("(04)", "Change ID", "4.5K"),
-                ("(05)", "Change Name", "100"),
-                ("(06)", "Change Name (Rainbow)", "100"),
-                ("(07)", "Number Plates", "2K"),
-                ("(08)", "Account Delete", "Free"),
-                ("(09)", "Account Register", "Free"),
-                ("(10)", "Delete Friends", "500"),
-                ("(11)", "Unlock Paid Cars", "5K"),
-                ("(12)", "Unlock All Cars", "6K"),
-                ("(13)", "Unlock All Cars Siren", "3.5K"),
-                ("(14)", "Unlock W16 Engine", "4K"),
-                ("(15)", "Unlock All Horns", "3K"),
-                ("(16)", "Unlock Disable Damage", "3K"),
-                ("(17)", "Unlock Unlimited Fuel", "3K"),
-                ("(18)", "Unlock Home 3", "4K"),
-                ("(19)", "Unlock Smoke", "4K"),
-                ("(20)", "Unlock Wheels", "4K"),
-                ("(21)", "Unlock Animations", "2K"),
-                ("(22)", "Unlock Equipaments M", "3K"),
-                ("(23)", "Unlock Equipaments F", "3K"),
-                ("(24)", "Change Race Wins", "1K"),
-                ("(25)", "Change Race Loses", "1K"),
-                ("(26)", "Clone Account", "7K"),
-                ("(27)", "Custom HP", "2.5K"),
-                ("(28)", "Custom Angle", "1.5K"),
-                ("(29)", "Custom Tire burner", "1.5K"),
-                ("(30)", "Custom Car Millage", "1.5K"),
-                ("(31)", "Custom Car Brake", "2K"),
-                ("(32)", "Remove Rear Bumper", "2K"),
-                ("(33)", "Remove Front Bumper", "2K"),
-                ("(34)", "Change Account Password", "2K"),
-                ("(35)", "Change Account Email", "2K"),
-                ("(36)", "Custom Spoiler", "10K"),
-                ("(37)", "Custom BodyKit", "10K"),
-                ("(38)", "Unlock Premium Wheels", "4.5K"),
-                ("(39)", "Unlock Toyota Crown", "2K"),
-                ("(0)", "Exit From Tool", "")
-            ]
-
-            for num, item, price in menu_items:
-                console.print(f"[yellow][white]{item[0]}[/] {item[1]:<25} [red]{item[2]}[/]")
-
-            console.print("[red]===============[white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/]===============[/]")
-            service = IntPrompt.ask(f"[?] Select a Service [red][1-{choices[-1]} or 0][/]", choices=choices, show_choices=False)
-            console.print("[red]===============[white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/]===============[/]")
+            choices = ["00", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",]
+            console.print("[bold yellow][bold white](01)[/bold white]: Increase Money           [bold red]1.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](02)[/bold white]: Increase Coins           [bold red]1.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](03)[/bold white]: King Rank                [bold red]8K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](04)[/bold white]: Change ID                [bold red]4.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](05)[/bold white]: Change Name              [bold red]100[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](06)[/bold white]: Change Name (Rainbow)    [bold red]100[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](07)[/bold white]: Number Plates            [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](08)[/bold white]: Account Delete           [bold red]Free[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](09)[/bold white]: Account Register         [bold red]Free[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](10)[/bold white]: Delete Friends           [bold red]500[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](11)[/bold white]: Unlock Paid Cars         [bold red]5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](12)[/bold white]: Unlock All Cars          [bold red]6K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](13)[/bold white]: Unlock All Cars Siren    [bold red]3.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](14)[/bold white]: Unlock W16 Engine        [bold red]4K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](15)[/bold white]: Unlock All Horns         [bold red]3K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](16)[/bold white]: Unlock Disable Damage    [bold red]3K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](17)[/bold white]: Unlock Unlimited Fuel    [bold red]3K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](18)[/bold white]: Unlock Home 3            [bold red]4K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](19)[/bold white]: Unlock Smoke             [bold red]4K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](20)[/bold white]: Unlock Wheels            [bold red]4K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](21)[/bold white]: Unlock Animations        [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](22)[/bold white]: Unlock Equipaments M     [bold red]3K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](23)[/bold white]: Unlock Equipaments F     [bold red]3K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](24)[/bold white]: Change Race Wins         [bold red]1K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](25)[/bold white]: Change Race Loses        [bold red]1K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](26)[/bold white]: Clone Account            [bold red]7K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](27)[/bold white]: Custom HP                [bold red]2.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](28)[/bold white]: Custom Angle             [bold red]1.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](29)[/bold white]: Custom Tire burner       [bold red]1.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](30)[/bold white]: Custom Car Millage       [bold red]1.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](31)[/bold white]: Custom Car Brake         [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](32)[/bold white]: Remove Rear Bumper       [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](33)[/bold white]: Remove Front Bumper      [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](34)[/bold white]: Change Account Password  [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](35)[/bold white]: Change Account Email     [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](36)[/bold white]: Custom Spoiler           [bold red]10K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](37)[/bold white]: Custom BodyKit           [bold red]10K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](38)[/bold white]: Unlock Premium Wheels    [bold red]4.5K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](39)[/bold white]: Unlock Toyota Crown      [bold red]2K[/bold red][/bold yellow]")
+            console.print("[bold yellow][bold white](0) [/bold white]: Exit From Tool [/bold yellow]")
+            
+            console.print("[bold red]===============[bold white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/bold white]===============[/bold red]")
+            
+            service = IntPrompt.ask(f"[bold][?] Select a Service [red][1-{choices[-1]} or 0][/red][/bold]", choices=choices, show_choices=False)
+            
+            console.print("[bold red]===============[bold white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/bold white]===============[/bold red]")
             
             if service == 0: # Exit
                 console.print("[bold white] Thank You for using my tool[/bold white]")
