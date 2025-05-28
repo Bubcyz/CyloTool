@@ -38,9 +38,9 @@ def gradient_text(text, colors):
 
 def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
-    brand_name = "ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴋᴀʏᴢᴇɴ x ᴄʏʟᴏ ᴛᴏᴏʟ ᴠ2"
+    brand_name = "Tool version is 0.3"
     
-    text = Text(brand_name, style="bold black"
+    text = Text(brand_name, style="bold black")
     
     console.print(text)
     console.print("[bold white] ============================================================[/bold white]")
@@ -203,11 +203,11 @@ if __name__ == "__main__":
             console.print("[bold yellow][bold white](39)[/bold white]: Unlock Toyota Crown      [bold red]2K[/bold red][/bold yellow]")
             console.print("[bold yellow][bold white](0) [/bold white]: Exit From Tool [/bold yellow]")
             
-            console.print("[bold red]===============[bold white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/bold white]===============[/bold red]")
+            console.print("[bold red]===============[bold white][ 𝐂𝐏𝐌 ][/bold white]===============[/bold red]")
             
             service = IntPrompt.ask(f"[bold][?] Select a Service [red][1-{choices[-1]} or 0][/red][/bold]", choices=choices, show_choices=False)
             
-            console.print("[bold red]===============[bold white][ ᴄʏʟᴏ ᴛᴏᴏʟ ][/bold white]===============[/bold red]")
+            console.print("[bold red]===============[bold white][ 𝐂𝐏𝐌 ][/bold white]===============[/bold red]")
             
             if service == 0: # Exit
                 console.print("[bold white] Thank You for using my tool[/bold white]")
